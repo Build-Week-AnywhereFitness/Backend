@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "start" : "node index.js",
+    "seed": "knex migrate:rollback --env production && knex migrate:latest --env production && knex seed:run --env production"
   },
   "repository": "https://github.com/Build-Week-AnywhereFitness/Backend.git",
   "author": "Eiosx <eiosxenzo@gmail.com>",
