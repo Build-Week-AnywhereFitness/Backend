@@ -6,9 +6,11 @@ const server = express();
 server.use(express.json());
 
 const RegisterRouter = require('./routes/auth/register');
+const LoginRouter = require('./routes/auth/login');
 const UserRouter = require('./routes/users');
 
-server.user("/register", RegisterRouter);
+server.use("/register", RegisterRouter);
+server.use("/login", LoginRouter);
 server.use("/users", UserRouter);
 
 server.get('/', (req, res) => {

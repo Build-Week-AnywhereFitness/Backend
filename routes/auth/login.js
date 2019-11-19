@@ -21,11 +21,6 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   const { first_name, last_name, username, password, email, authCode} = req.body;
 
-  const role = 'client';
-
-  const newUser = { id: uuid(), first_name, last_name, username, password, email, role}
-
-
   try {
     res.status(200).json("hello there!")
   } catch(error){
