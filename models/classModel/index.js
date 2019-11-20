@@ -21,3 +21,15 @@ const getClassesByUser = id => {
       .where({ instructor_id: id })
       .select('id', 'name', 'type', 'location', 'instructor_id');
 };
+
+const addClass = workoutClass => {
+  return db("classes")
+  .insert(workoutClass)
+  .returning("*");
+}
+
+module.exports = {
+  getClassById, 
+  getClassesByUser,
+  addClass
+}

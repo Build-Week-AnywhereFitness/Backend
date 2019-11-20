@@ -13,7 +13,7 @@ const ClassRouter = require('./routes/classes');
 server.use("/register", RegisterRouter);
 server.use("/login", LoginRouter);
 server.use("/users", UserRouter);
-server.user("/classes", ClassRouter);
+server.use("/", ClassRouter);
 
 server.get('/', (req, res) => {
   res.status(200).json("Server is up!");
