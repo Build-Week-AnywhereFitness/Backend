@@ -3,7 +3,7 @@ const db = require("../../db");
 const addUser = user => {
   return db("users")
   .insert(user)
-  .returning("*")
+  .returning("*");
 };
 
 const getUserById = async id => {
@@ -16,7 +16,8 @@ const getUserById = async id => {
 const getUserByUsername = username => {
   return db("users")
   .where({username})
-  .first();
+  .first()
+  .returning("*");
 }
 
 

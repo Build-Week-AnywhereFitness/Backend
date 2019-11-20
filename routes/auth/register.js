@@ -9,7 +9,7 @@ const db = require("../../models/usersModel");
 router.post("/", async (req, res) => {
   const { first_name, last_name, username, password, email, authCode} = req.body;
 
-  const role = '';
+  let role = '';
 
   //Will refactor as middleware
   if(authCode === 'AFcoach'){
@@ -19,7 +19,9 @@ router.post("/", async (req, res) => {
   }
 
 
+
   try {
+    //Need to implement bcryptjs
     const newUser = { id: uuid(), first_name, last_name, username, password, email, role}
     console.log(newUser)
     const userData = await db.addUser(newUser);
