@@ -18,11 +18,11 @@ router.post("/", async (req, res) => {
       const foundUser = {...userData, password: ''}
 
       //need to fix token generation, getting error
-      // const token = generateToken(userData);
+      const token = generateToken(userData);
 
       res.status(200).json({
         message: "You have logged in!",
-        // token: token,
+        token: token, 
         data: foundUser
       })
     }
