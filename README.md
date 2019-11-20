@@ -1,12 +1,10 @@
 # Backend API
----
 
 ## Users Endpoints
 ---
 Endpoints to create, login, get, edit, delete users.
 
 ### Register
----
 `axios.post("https://anywhere--fitness.herokuapp.com/register", {
   first_name : "Joe",
   last_name : "Smith",
@@ -25,7 +23,6 @@ All of these keys are required. "authCode" can be empty though, if authCode is e
 
 
 ### Login
----
 
 `axios.post("https://anywhere--fitness.herokuapp.com/login", {
   username : "jSmith",
