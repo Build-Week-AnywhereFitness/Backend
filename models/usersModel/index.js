@@ -6,8 +6,23 @@ const addUser = user => {
   .returning("*")
 };
 
+const getUserById = async id => {
+  const searchedUser = await db("users")
+  .where({id})
+  .first();
+  return (user = {...searchedUser, password: ''});
+};
+
+const getUserByUsername = username => {
+  return db("users")
+  .where({username})
+  .first();
+}
+
 
 
 module.exports = {
-  addUser
+  addUser,
+  getUserById,
+  getUserByUsername
 };
