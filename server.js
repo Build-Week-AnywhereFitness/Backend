@@ -1,7 +1,14 @@
 const express = require("express");
-
+const cors = require("cors");
 
 const server = express();
+
+server.use(
+  cors({
+    credentials: true,
+    origin: process.env.FRONTEND_URL
+  })
+);
 
 server.use(express.json());
 
