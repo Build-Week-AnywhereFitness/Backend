@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const helper = require('../../models/classModel');
 const uuid = require("uuid/v4");
