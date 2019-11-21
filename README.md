@@ -65,10 +65,6 @@ This will get all the workouts that the coach has created.
 You will get the id as a response from the server once you have logged in successfully. You can then use that id as an argument to send in this url.
 
 
-### Get Client's Workouts
-
-Still finishing
-
 
 ### Coach Edit Workouts
 
@@ -92,4 +88,8 @@ You will get the instructor_id from the login post response once you have logged
 `axios.delete("https://anywhere--fitness.herokuapp.com/classes/:id")`
 
 "id" here is the workout id. You can grab that id when you get a list of the coach's workouts. You can save that id in state and then map it to the indivual cards as a prop.
+
+### Get All Client's Workouts
+
+
 

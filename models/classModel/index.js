@@ -47,8 +47,14 @@ const deleteClass = id => {
   .returning("*");
 }
 
+const getClassById = id => {
+  return db('classes')
+  .where({id})
+  .returning("*");
+}
+
 module.exports = {
-  // getClassById, 
+  getClassById, 
   getClassesByCoach,
   addClass,
   getClasses,
