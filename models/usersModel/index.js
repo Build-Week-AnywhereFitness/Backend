@@ -18,12 +18,22 @@ const getUserByUsername = username => {
   .where({username})
   .first()
   .returning("*");
+};
+
+const updateUserById = (id, changes) => {
+
 }
 
+const deleteUserById = id => {
+
+
+}
 
 
 module.exports = {
   addUser,
   getUserById,
-  getUserByUsername
+  getUserByUsername,
+  updateUserById,
+  deleteUserById
 };
