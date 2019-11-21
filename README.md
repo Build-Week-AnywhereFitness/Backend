@@ -74,9 +74,8 @@ Still finishing
 
 `axios.put("https://anywhere--fitness.herokuapp.com/classes/:id", {
   "name" : "Powerlifting",
-	"type" : "High Intensity",
+	"intensity" : "High Intensity",
 	"location" : " Garreg Mach Monastery",
-	"instructor_id" : "ae116945-0778-4f12-9c0f-80aeac336bde",
 	"dateTime" : "11/20/19",
   "duration" : '2h',
   "max_class_size" : 32,
@@ -92,5 +91,5 @@ You will get the instructor_id from the login post response once you have logged
 
 `axios.delete("https://anywhere--fitness.herokuapp.com/classes/:id")`
 
-"id" here is the workout id. You can grab that id when you get a list of either the coach's workouts or client's workouts. You can save that id in state and then map it to the indivual cards as a prop.
+"id" here is the workout id. You can grab that id when you get a list of the coach's workouts. You can save that id in state and then map it to the indivual cards as a prop.
 
