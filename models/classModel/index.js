@@ -19,7 +19,7 @@ const db = require("../../db");
 const getClassesByCoach = id => {
   return db('classes')
       .where({ instructor_id: id })
-      .select('id', 'name', 'type', 'location', 'instructor_id');
+      .returning("*");
 };
 
 const addClass = workoutClass => {

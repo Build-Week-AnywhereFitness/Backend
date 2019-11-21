@@ -20,7 +20,7 @@ router.get('/classes', async (req, res) => {
     }
 });
 
-// --------- Get Specific Class By Coach Id ------------ //
+// --------- Get Classes By Coach Id ------------ //
 
 router.get('/classes/coach/:id', async (req, res) => {
 
@@ -73,7 +73,7 @@ router.post('/classes', async (req, res) => {
       const inputClass = {id: uuid(), ...classInfo}
         let newClass = await helper.addClass(inputClass);
 
-        res.status(201).json(newClass);
+        res.status(201).json({message: "The workout has been added!", data: newClass});
     } catch (error) {
         res.status(500).send(error);
     }
@@ -88,7 +88,7 @@ router.put('/classes/:id', async (req, res) => {
     try {
         const updatedClass = await helper.updateClass(id, classInfo);
 
-        res.status(200).json(updatedClass);
+        res.status(200).json({message: 'The workout has been updated!', data: updatedClass});
     } catch (error) {
         res.status(404).send(error);
     }
@@ -104,7 +104,7 @@ router.delete('/classes/:id', async (req, res) => {
     try {
         let deletedClass = await helper.deleteClass(id);
 
-        res.status(200).json(deletedClass);
+        res.status(200).json({message: "The workout has been deleted.", data: deletedClass});
     } catch (error) {
         res.status(404).send(error);
     }
