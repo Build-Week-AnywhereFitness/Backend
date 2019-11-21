@@ -33,13 +33,64 @@ IMPORTANT: Key values are expected as strings. If post is successful, will retur
 
 ## Workouts Endpoints
 
-## Get All Workouts
+### Coach Create Workouts
 
-### Get User's Workouts
+`axios.post("https://anywhere--fitness.herokuapp.com/classes", {
+	"name" : "Powerlifting",
+	"intensity" : "High Intensity",
+	"location" : " Intense Barbell ",
+	"instructor_id" : "ae116945-0778-4f12-9c0f-80aeac336bde",
+	"dateTime" : "11/20/19",
+  "duration" : '1h',
+  "max_class_size" : 32,
+  "attendee_size" : 20
+})`
 
-### Create Workouts
+Make sure to send an obj with these keys. name, location, instructor_id, and dateTime are not nullable. max_class_size and attendee_size are integers. 
 
-### Edit Workouts
+### Get All Workouts
 
-### Delete Workouts
+`axios.get("https://anywhere--fitness.herokuapp.com/classes")`
+
+Will return all current workouts in the database. This will be used for the client, so they can see all they workouts on the database that they can choose from.
+
+
+
+## Get Coach's Workouts
+
+`axios.get("https://anywhere--fitness.herokuapp.com/classes/coach/:id")`
+
+
+This will get all the workouts that the coach has created.
+You will get the id as a response from the server once you have logged in successfully. You can then use that id as an argument to send in this url.
+
+
+### Get Client's Workouts
+
+Still finishing
+
+
+### Coach Edit Workouts
+
+`axios.put("https://anywhere--fitness.herokuapp.com/classes/:id", {
+  "name" : "Powerlifting",
+	"type" : "High Intensity",
+	"location" : " Garreg Mach Monastery",
+	"instructor_id" : "ae116945-0778-4f12-9c0f-80aeac336bde",
+	"dateTime" : "11/20/19",
+  "duration" : '2h',
+  "max_class_size" : 32,
+  "attendee_size" : 2
+})`
+
+"id" here is the workout id. You can grab that id when you get a list of either the coach's workouts or client's workouts. You can save that id in state and then map it to the indivual cards as a prop.
+
+You will get the instructor_id from the login post response once you have logged in successfully.
+
+
+### Coach Delete Workouts
+
+`axios.delete("https://anywhere--fitness.herokuapp.com/classes/:id")`
+
+"id" here is the workout id. You can grab that id when you get a list of either the coach's workouts or client's workouts. You can save that id in state and then map it to the indivual cards as a prop.
 
