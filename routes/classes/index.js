@@ -66,7 +66,7 @@ router.get('/classes/coach/:id', async (req, res) => {
 
 // --------------- Add Class --------------- //
 
-router.post('/classes/', async (req, res) => {
+router.post('/classes', async (req, res) => {
     const classInfo = req.body;
 
     try {
