@@ -91,5 +91,30 @@ You will get the instructor_id from the login post response once you have logged
 
 ### Get All Client's Workouts
 
+`axios.get("https://anywhere--fitness.herokuapp.com/sessions/client/:id")`
+
+id is the client's id.
+
+### Client Add Workout to Account
+
+`axios.post("https://anywhere--fitness.herokuapp.com/sessions/client", {client_id : "cc0a043d-405e-4923-a599-a54299db211f", workout_id : "f3766819-cfab-401f-82c5-53ab3f2e9757"})`
+
+You have to send an obj with both the desired client id and workout id.
+
+### Client Remove from Workout
+
+`axios.delete("https://anywhere--fitness.herokuapp.com/sessions/client/:id", {workout_id : "f3766819-cfab-401f-82c5-53ab3f2e9757"})`
+
+Send the client id in the url and send the workout_id to be removed from in an obj
+
+
+### Coach Get All Client's for Workout
+
+`axios.get("https://anywhere--fitness.herokuapp.com/sessions/:id")`
+
+The id is the workout id. This endpoint will allow the coach to get all clients attached to a workout.
+
+
+
 
 

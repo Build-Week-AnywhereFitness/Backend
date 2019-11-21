@@ -20,9 +20,10 @@ const addClientToWorkout = workoutInfo => {
   .returning("*");
 }
 
-const removeClientFromWorkout = id => {
+const removeClientFromWorkout = (id, workoutId) => {
+  const {workout_id} = workoutId;
   return db('clientWorkouts')
-  .where({id})
+  .where({client_id: id, workout_id: workout_id})
   .del()
   .returning("*");
 }

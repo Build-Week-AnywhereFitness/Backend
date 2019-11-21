@@ -17,7 +17,7 @@ const RegisterRouter = require('./routes/auth/register');
 const LoginRouter = require('./routes/auth/login');
 const UserRouter = require('./routes/users');
 const ClassRouter = require('./routes/classes');
-const clientWorkoutsRouter = require('./routes/clientWorkouts';)
+const clientWorkoutsRouter = require('./routes/clientWorkouts');
 
 
 server.use("/register", RegisterRouter);

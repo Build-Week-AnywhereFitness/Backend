@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/sessions/:id',  async (req, res) => {
 
   const { id } = req.params;
-  
+
     try {
         let sessions = await helper.getAllClientsForWorkout(id);
 
@@ -39,25 +39,25 @@ router.get('/sessions/client/:id',  async (req, res) => {
 
 // --------------- Client Add Workout to Account -------------- //
 
-router.post('/sessions/client/:id',  async (req, res) => {
+router.post('/sessions/client',  async (req, res) => {
 
-  const { id } = req.params;
+  // const { id } = req.params;
 
     const sessionId = req.body;
 
-    const addWorkout = {...sessionId, client_id: id}
+    // const addWorkout = {...sessionId, client_id: id}
 
     try {
-        const newSession = await helper.addClientToWorkout(addWorkout);
+        const newSession = await helper.addClientToWorkout(sessionId);
 
-        const getClass = await classHelper.getClassById(newSession["workout_id"]);
+        // const getClass = await classHelper.getClassById(newSession["workout_id"]);
 
-        let attendeeSize = getClass["attendee_size"];
+        // let attendeeSize = getClass["attendee_size"];
 
         //Need to add 
-        const modifiedClass = await classHelper.updateClass({...getClass, attendee_size: attendeeSize + 1});
+        // const modifiedClass = await classHelper.updateClass({...getClass, attendee_size: attendeeSize + 1});
 
-        res.status(201).json({message: "Congratulations you have been added to the workout!", data: modifiedClass});
+        res.status(201).json({message: "Congratulations you have been added to the workout!", data: newSession});
     } catch (error) {
         res.status(500).send(error);
     }
@@ -69,8 +69,10 @@ router.post('/sessions/client/:id',  async (req, res) => {
 router.delete('/sessions/client/:id',  async (req, res) => {
     const { id } = req.params;
 
+    const workoutId = req.body;
+
     try {
-        let deletedSession = await helper.removeClientFromWorkout(id);
+        let deletedSession = await helper.removeClientFromWorkout(id, workoutId);
 
         res.status(200).json({message: "You have been removed from the workout."});
     } catch (error) {
