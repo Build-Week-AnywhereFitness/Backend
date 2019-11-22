@@ -29,7 +29,9 @@ router.post("/", async (req, res) => {
     const newUser = { id: uuid(), first_name, last_name, username, password: passwordHash, email, role}
 
     const userData = await db.addUser(newUser);
-    
+
+    userData.password = '';
+
     res.status(201).json({data: userData, message: "Congratulations! Your account has been created!"})
 
   } catch(error){
