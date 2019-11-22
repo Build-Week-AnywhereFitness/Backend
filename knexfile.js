@@ -11,6 +11,19 @@ module.exports = {
       password: process.env.PW
     }
   },
+  testing: {
+    client:'postgresql',
+    connection:{
+      filename:'./test.db3',
+    },
+    useNullAsDefault:true,
+    migrations:{
+      directory:'./migrations',
+    },
+    seeds:{
+      directory:'./seeds',
+    },
+   },
 
   // staging: {
   //   client: 'postgresql',
