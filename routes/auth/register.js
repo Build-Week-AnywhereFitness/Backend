@@ -11,9 +11,7 @@ router.post("/", async (req, res) => {
   const { first_name, last_name, username, password, email, authCode} = req.body;
 
 
-  const passwordHash = bcrypt.hashSync(password, 14)
-
-  password = passwordHash;
+  const passwordHash = bcrypt.hashSync(password, 10)
 
   let role = '';
 
@@ -28,9 +26,10 @@ router.post("/", async (req, res) => {
 
   try {
     //Need to implement bcryptjs
-    const newUser = { id: uuid(), first_name, last_name, username, password, email, role}
-    console.log(newUser)
+    const newUser = { id: uuid(), first_name, last_name, username, password: passwordHash, email, role}
+
     const userData = await db.addUser(newUser);
+    
     res.status(201).json({data: userData, message: "Congratulations! Your account has been created!"})
 
   } catch(error){
