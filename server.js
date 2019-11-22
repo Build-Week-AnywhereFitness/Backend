@@ -3,6 +3,7 @@ const cors = require("cors");
 
 
 const server = express();
+const {checkToken} = require("./middleware/auth/checkToken");
 
 server.use(
   cors({
@@ -22,9 +23,9 @@ const clientWorkoutsRouter = require('./routes/clientWorkouts');
 
 server.use("/register", RegisterRouter);
 server.use("/login", LoginRouter);
-server.use("/users", UserRouter);
-server.use("/", ClassRouter);
-server.use("/", clientWorkoutsRouter);
+server.use("/users", checkToken, UserRouter);
+server.use("/", checkToken, ClassRouter);
+server.use("/", checkToken, clientWorkoutsRouter);
 
 server.get('/', (req, res) => {
   res.status(200).json("Server is up!");
