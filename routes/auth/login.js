@@ -1,6 +1,8 @@
 const express = require("express");
 const { generateToken } = require("../../middleware/auth/generateToken");
 const router = express.Router();
+const bcrypt = require("bcryptjs");
+
 const db = require("../../models/usersModel");
 
 
@@ -13,7 +15,7 @@ router.post("/", async (req, res) => {
   try {
     const userData = await db.getUserByUsername(username);
 
-    if(password === userData.password){
+    if(userData && bcrypt.compareSync(password, userData.password)){
       
       const foundUser = {...userData, password: ''}
 
